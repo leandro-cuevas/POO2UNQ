@@ -5,13 +5,13 @@ import java.time.Period;
 
 abstract class Empleado {
 
-	private String nombre;
+	protected String nombre;
 	
-	private String direccion;
+	protected String direccion;
 	
-	private String estadoCivil;
+	protected String estadoCivil;
 	
-	private LocalDate  fechaNacimiento;
+	protected LocalDate fechaNacimiento;
 	
 	private int sueldoBasico = 1000;
 	
@@ -28,9 +28,8 @@ abstract class Empleado {
 	}
 	
 	public int edad() {
-	        LocalDate currentDate = LocalDate.now();
-	        Period period = Period.between(fechaNacimiento, currentDate);
-	        return period.getYears();
+		        Period period = Period.between(fechaNacimiento, LocalDate.now());
+		        return period.getYears();
 	}
 	
 	abstract public int sueldoBruto();
@@ -39,5 +38,13 @@ abstract class Empleado {
 	
 	public int sueldoNeto() {
 		return this.sueldoBruto() - this.retenciones();
+	}
+	
+	public int getSueldoBasico() {
+		return this.sueldoBasico;
+	}
+	
+	protected String getEstadoCivil() {
+		return this.estadoCivil;
 	}
 }
