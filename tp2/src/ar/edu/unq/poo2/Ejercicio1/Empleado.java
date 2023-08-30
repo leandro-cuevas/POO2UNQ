@@ -34,7 +34,10 @@ abstract class Empleado {
 	
 	abstract public int sueldoBruto();
 	
-	abstract public int retenciones();
+	
+	abstract protected int retencionPorObraSocial();
+	
+	abstract protected int retencionPorJubilacion();
 	
 	public int sueldoNeto() {
 		return this.sueldoBruto() - this.retenciones();
@@ -44,7 +47,21 @@ abstract class Empleado {
 		return this.sueldoBasico;
 	}
 	
+	public int retenciones() {
+		return this.retencionPorObraSocial() + this.retencionPorJubilacion();
+	}
+	
 	protected String getEstadoCivil() {
 		return this.estadoCivil;
+	}
+	
+	abstract public String desgloceDeConceptos();
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public String getDireccion() {
+		return this.direccion;
 	}
 }

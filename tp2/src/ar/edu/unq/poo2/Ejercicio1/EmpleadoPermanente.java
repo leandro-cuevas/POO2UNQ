@@ -37,25 +37,35 @@ public class EmpleadoPermanente extends Empleado {
 		return this.getSueldoBasico() + this.salarioFamiliar();
 	}
 	
-	private int retencionPorObraSocial() {
+	@Override
+	protected int retencionPorObraSocial() {
 		return (int) (this.sueldoBruto() * 0.10 + this.getCantidadHijes() * 20);
 	}
 	
-	private int retencionPorJubilacion() {
+	@Override
+	protected int retencionPorJubilacion() {
 		return (int) (this.sueldoBruto() * 0.15);
 	}
 
-	@Override
-	public int retenciones() {
-		return this.retencionPorObraSocial() + this.retencionPorJubilacion();
-	}
-	
 	private int getCantidadHijes() {
 		return this.cantidadHijes;
 	}
 	
 	private int getAntiguedad( ) {
 		return this.antiguedad;
+	}
+	
+	@Override
+	public String desgloceDeConceptos() {
+		return  "Sueldo bruto está compuesto por:\n" + 
+				"Salario familiar: $" + this.salarioFamiliar() + ". El cual se compone de:\n" +
+				"Asignación por hijo: $" + this.asignacionPorHijes()  + "\n" +
+				"Asignación por conyuge: $" + this.asignacionPorConyuge() + "\n" +
+				"Antigüedad: $" + this.asignacionPorAntiguedad() + "\n" +
+				"Se descuenta en calidad de retenciones:\n" +
+				"Obra social: $" + this.retencionPorObraSocial() + "\n" +
+				"Jubilación: $" + this.retencionPorJubilacion();
+		
 	}
 
 }

@@ -12,36 +12,50 @@ class EmpleadoTemporario extends Empleado {
 		super(nombre, direccion, estadoCivil, fechaNacimiento);
 	}
 
-	@Override
-	public int sueldoBruto() {
+	private int sueldoHorasExtra() {
 
 		final int precioHoraExtra = 40;
 
-		return this.getSueldoBasico() + (precioHoraExtra * getCantHorasExtra());
+		return precioHoraExtra * getCantHorasExtra();
+		
 	}
+	
+	@Override
+	public int sueldoBruto() {
 
-	private int retencionJubilacion() {
 
-		int monto = (this.sueldoBruto() * 10) / 100;
+		return this.getSueldoBasico() + this.sueldoHorasExtra();
+	}
+	
+	@Override
+	protected int retencionPorObraSocial() {
+
+		int monto = (int)(this.sueldoBruto() * 10) / 100;
 
 		if (this.edad() >= 50) {
 			monto += 25;
-		}
+		} 
 		return monto;
 	}
 
-	private int retencionHorasExtra() {
-		return (this.sueldoBruto() * 10) / 100 + this.getCantHorasExtra() * 5;
-	}
-
 	@Override
-	public int retenciones() {
-
-		return this.retencionHorasExtra() + this.retencionJubilacion();
+	protected int retencionPorJubilacion() {
+		return (this.sueldoBruto() * 10) / 100 + this.getCantHorasExtra() * 5;
 	}
 
 	private int getCantHorasExtra() {
 		return this.cantHorasExtra;
+	}
+
+	@Override
+	public String desgloceDeConceptos() {
+		return  "Sueldo bruto está compuesto por:\n" + 
+				"Sueldo básico: $" + this.getSueldoBasico() + "\n" +
+				"Horas extras: $" + this.sueldoHorasExtra() + "\n" +
+				"Se descuenta en calidad de retenciones:\n" +
+				"Obra social: $" + this.retencionPorObraSocial() + "\n" +
+				"Jubilación: $" + this.retencionPorJubilacion();
+		
 	}
 
 }

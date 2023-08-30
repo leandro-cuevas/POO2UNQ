@@ -2,6 +2,8 @@ package ar.edu.unq.poo2.Ejercicio1;
 
 import java.util.List;
 
+import java.time.LocalDate;
+
 class Empresa {
 
 	private String nombre;
@@ -9,6 +11,8 @@ class Empresa {
 	private String cuit;
 	
 	List<Empleado> empleados;
+	
+	List<ReciboHaberes> recibosEmitidos;
 	
 	public int totalSueldosNeto() {
 		
@@ -40,8 +44,10 @@ class Empresa {
 		return sumaRetenciones;	
 	}
 	
-	public void liquidarHaberes() {
-		
+	public void realizarLiqDeSueldos() {
+		for (Empleado e: empleados) {
+			recibosEmitidos.add(new ReciboHaberes(e.getNombre(), e.getDireccion(), LocalDate.now(), e.sueldoNeto(), e.sueldoBruto(), e.desgloceDeConceptos()));
+		}
 	}
 	
 }
