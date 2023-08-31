@@ -4,12 +4,14 @@ import java.time.LocalDate;
 
 class EmpleadoContratado extends Empleado {
 
-	private int numeroDeContrato;
+	private String numeroDeContrato;
 	
 	private String modoDePago;
 	
-	public EmpleadoContratado(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento) {
+	public EmpleadoContratado(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento, String numeroDeContrato, String modoDePago) {
 		super(nombre, direccion, estadoCivil, fechaNacimiento);
+		this.numeroDeContrato = numeroDeContrato;
+		this.modoDePago = modoDePago;
 	}
 
 	@Override

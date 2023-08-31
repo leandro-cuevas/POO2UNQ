@@ -14,6 +14,11 @@ class Empresa {
 	
 	List<ReciboHaberes> recibosEmitidos;
 	
+	public Empresa(String nombre, String cuit) {
+		this.nombre = nombre;
+		this.cuit = cuit;
+	}
+	
 	public int totalSueldosNeto() {
 		
 		int sumaSueldos = 0;
@@ -43,6 +48,11 @@ class Empresa {
 		}
 		return sumaRetenciones;	
 	}
+	
+	public void contratarTrabajador(Empleado empleado) {
+		empleados.add(empleado);
+	}
+	
 	
 	public void realizarLiqDeSueldos() {
 		for (Empleado e: empleados) {
