@@ -8,8 +8,9 @@ class EmpleadoTemporario extends Empleado {
 
 	private int cantHorasExtra;
 
-	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento) {
+	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento, int cantHorasExtra) {
 		super(nombre, direccion, estadoCivil, fechaNacimiento);
+		this.cantHorasExtra = cantHorasExtra;
 	}
 
 	private int sueldoHorasExtra() {
@@ -30,7 +31,7 @@ class EmpleadoTemporario extends Empleado {
 	@Override
 	protected int retencionPorObraSocial() {
 
-		int monto = (int)(this.sueldoBruto() * 10) / 100;
+		int monto = (int)(this.sueldoBruto() * 0.1);
 
 		if (this.edad() >= 50) {
 			monto += 25;
@@ -40,7 +41,7 @@ class EmpleadoTemporario extends Empleado {
 
 	@Override
 	protected int retencionPorJubilacion() {
-		return (this.sueldoBruto() * 10) / 100 + this.getCantHorasExtra() * 5;
+		return (int)(this.sueldoBruto() * 0.1 + this.getCantHorasExtra() * 5);
 	}
 
 	private int getCantHorasExtra() {

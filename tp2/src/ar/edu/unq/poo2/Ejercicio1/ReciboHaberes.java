@@ -18,4 +18,8 @@ public class ReciboHaberes {
 		this.sueldoBruto = sueldoB;
 		this.desgloceDeConceptos  = desgloceDeConceptos;
 	}
+	
+	public String getNombre() {
+		return this.nombreEmpleado;
+	}
 }

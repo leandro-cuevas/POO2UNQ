@@ -1,7 +1,7 @@
 package ar.edu.unq.poo2.Ejercicio1;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import java.time.LocalDate;
 
 class Empresa {
@@ -10,9 +10,9 @@ class Empresa {
 	
 	private String cuit;
 	
-	List<Empleado> empleados;
+	private List<Empleado> empleados = new ArrayList<>();
 	
-	List<ReciboHaberes> recibosEmitidos;
+	private List<ReciboHaberes> recibosEmitidos = new ArrayList<>();
 	
 	public Empresa(String nombre, String cuit) {
 		this.nombre = nombre;
@@ -59,5 +59,25 @@ class Empresa {
 			recibosEmitidos.add(new ReciboHaberes(e.getNombre(), e.getDireccion(), LocalDate.now(), e.sueldoNeto(), e.sueldoBruto(), e.desgloceDeConceptos()));
 		}
 	}
+	
+	public List getEmpleados() {
+		return this.empleados;
+	}
+	
+	public List getRecibos() {
+		return this.recibosEmitidos;
+	}
+	
+	public ReciboHaberes encontrarReciboPorNombre(String nombre) {
+		for (ReciboHaberes r : this.recibosEmitidos) {
+			if (r.getNombre() == nombre) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	
+
 	
 }
