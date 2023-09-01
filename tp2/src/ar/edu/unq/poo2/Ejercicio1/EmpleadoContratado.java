@@ -2,7 +2,7 @@ package ar.edu.unq.poo2.Ejercicio1;
 
 import java.time.LocalDate;
 
-class EmpleadoContratado extends Empleado {
+public class EmpleadoContratado extends Empleado {
 
 	private String numeroDeContrato;
 	
@@ -19,7 +19,8 @@ class EmpleadoContratado extends Empleado {
 		return this.getSueldoBasico();
 	}
 
-	public int retencionGastosAdministrativos() {
+	@Override
+	protected int retencionGastosAdministrativos() {
 		
 		 final int gastosAdministrativos = 50;
 		

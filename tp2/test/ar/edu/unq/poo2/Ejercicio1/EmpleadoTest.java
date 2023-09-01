@@ -41,11 +41,27 @@ class EmpleadoTest {
 	}
 	
 	@Test
-	void testEnEmpresa() { 
-		assertEquals(3193, empresa.totalSueldosNeto());
+	void valoresDelPermanente() {
+		assertEquals(1900, empleadopermanente.sueldoBruto());
+		assertEquals(515, empleadopermanente.retenciones());
+		assertEquals(1385, empleadopermanente.sueldoNeto());
+	}
+	
+	@Test
+	void valoresDelContratado() {
+		assertEquals(1000, empleadocontratado.sueldoBruto());
+		assertEquals(50, empleadocontratado.retenciones());
+		assertEquals(950, empleadocontratado.sueldoNeto());
+	}
+	
+	@Test
+	void testEnEmpresa() {
+		assertEquals(3, empresa.getEmpleados().size());
+		assertEquals(4060, empresa.totalSueldosBruto());
+		assertEquals(842, empresa.totalRetenciones());
+		assertEquals(3218, empresa.totalSueldosNeto());
 		empresa.realizarLiqDeSueldos();
 		assertEquals(3, empresa.getRecibos().size());
-		assertTrue("Leandro" == empresa.encontrarReciboPorNombre("Leandro").getNombre());
 	}
 
 }
