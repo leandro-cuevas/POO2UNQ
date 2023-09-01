@@ -1,4 +1,5 @@
 package ar.edu.unq.po2.tp3;
+import java.util.List;
 
 public class Disarmer {
 
@@ -18,5 +19,18 @@ public class Disarmer {
 		}
 
 		return contador;
+	}
+	
+	static int elQueMasParesTiene (List<Integer> arregloDeNumeros) {
+		
+		int maxHastaAhora = arregloDeNumeros.get(0);
+		int cantidadDeElementos = arregloDeNumeros.size() - 1;
+		
+		for (int i = 0; i < cantidadDeElementos; i++) {
+			if (Disarmer.contarPares(maxHastaAhora) < Disarmer.contarPares(arregloDeNumeros.get(i))) {
+				maxHastaAhora = arregloDeNumeros.get(i);
+			}
+		}
+		return (int)maxHastaAhora;
 	}
 }
