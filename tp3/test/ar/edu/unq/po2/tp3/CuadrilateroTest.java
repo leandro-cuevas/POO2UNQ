@@ -6,13 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RectanguloTest {
+class CuadrilateroTest {
 
 	Point puntoInicio;
 	Point puntoAbajoIzquierda;
 	Point puntoArribaDerecha;
 	Point puntoAbajoDerecha;
 	Rectangulo rectangulo;
+	Cuadrado cuadrado;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -21,6 +22,7 @@ class RectanguloTest {
 		puntoArribaDerecha = new Point(0, 10);
 		puntoAbajoDerecha = new Point(-4, 10);
 		rectangulo = new Rectangulo(puntoInicio, 4, 10);
+		cuadrado = new Cuadrado (puntoInicio, 2);
 	}
 
 	@Test
@@ -49,6 +51,9 @@ class RectanguloTest {
 	void areaYPerimetro() {
 		assertEquals(rectangulo.area(), 40);
 		assertEquals(rectangulo.perimetro(), 28);
+		assertEquals(cuadrado.area(), 4);
+		assertEquals(cuadrado.perimetro(), 8);
+
 	}
 
 }
