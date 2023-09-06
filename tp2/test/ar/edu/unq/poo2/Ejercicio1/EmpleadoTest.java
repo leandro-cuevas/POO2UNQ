@@ -54,11 +54,9 @@ class EmpleadoTest {
 
 	@Test
 	void testEnEmpresa() {
-		assertEquals(3, empresa.getEmpleados().size());
 		assertEquals(4060, empresa.totalSueldosBruto());
 		assertEquals(842, empresa.totalRetenciones());
 		assertEquals(3218, empresa.totalSueldosNeto());
 		empresa.realizarLiqDeSueldos();
-		assertEquals(3, empresa.getRecibos().size());
 	}
 }

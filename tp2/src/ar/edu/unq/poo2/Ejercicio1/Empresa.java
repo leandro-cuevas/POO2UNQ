@@ -20,27 +20,19 @@ public class Empresa {
 		this.cuit = cuit;
 	}
 
-	public List<Empleado> getEmpleados() {
-		return this.empleados;
-	}
-
-	public List<ReciboHaberes> getRecibos() {
-		return this.recibosEmitidos;
-	}
-
 	public int totalSueldosNeto() {
 
-		return this.getEmpleados().stream().mapToInt(e -> e.sueldoNeto()).sum();
+		return empleados.stream().mapToInt(e -> e.sueldoNeto()).sum();
 	}
 
 	public int totalSueldosBruto() {
 
-		return this.getEmpleados().stream().mapToInt(e -> e.sueldoBruto()).sum();
+		return empleados.stream().mapToInt(e -> e.sueldoBruto()).sum();
 	}
 
 	public int totalRetenciones() {
 
-		return this.getEmpleados().stream().mapToInt(e -> e.retenciones()).sum();
+		return empleados.stream().mapToInt(e -> e.retenciones()).sum();
 	}
 
 	public void contratarTrabajador(Empleado empleado) {
@@ -49,11 +41,11 @@ public class Empresa {
 
 	private void liquidarSueldo(Empleado empleado) {
 
-		getRecibos().add(new ReciboHaberes(empleado.getNombre(), empleado.getDireccion(), LocalDate.now(),
+		recibosEmitidos.add(new ReciboHaberes(empleado.getNombre(), empleado.getDireccion(), LocalDate.now(),
 				empleado.sueldoNeto(), empleado.sueldoBruto(), empleado.desgloceDeConceptos()));
 	}
 
 	public void realizarLiqDeSueldos() {
-		getEmpleados().stream().forEach(e -> this.liquidarSueldo(e));
+		empleados.stream().forEach(e -> this.liquidarSueldo(e));
 	}
 }
