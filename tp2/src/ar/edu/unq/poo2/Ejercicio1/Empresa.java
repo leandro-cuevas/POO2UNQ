@@ -3,8 +3,7 @@ package ar.edu.unq.poo2.Ejercicio1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.time.LocalDate;
+ import java.time.LocalDate;
 
 public class Empresa {
 
