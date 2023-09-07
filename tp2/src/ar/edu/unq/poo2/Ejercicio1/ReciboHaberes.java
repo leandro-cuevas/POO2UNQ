@@ -1,16 +1,17 @@
 package ar.edu.unq.poo2.Ejercicio1;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ReciboHaberes {
-	public String nombreEmpleado;
-	public String direccion;
-	public LocalDate fechaDeEmision;
-	public int sueldoNeto;
-	public int sueldoBruto;
-	public String desgloceDeConceptos;
+	private String nombreEmpleado;
+	private String direccion;
+	private LocalDate fechaDeEmision;
+	private int sueldoNeto;
+	private int sueldoBruto;
+	private List<Concepto> desgloceDeConceptos;
 	
-	public ReciboHaberes (String nombre, String direc, LocalDate fechaEmision, int sueldoN, int sueldoB, String desgloceDeConceptos) {
+	public ReciboHaberes (String nombre, String direc, LocalDate fechaEmision, int sueldoN, int sueldoB, List<Concepto> desgloceDeConceptos) {
 		this.nombreEmpleado = nombre;
 		this.direccion = direc;
 		this.fechaDeEmision = fechaEmision;
@@ -18,8 +19,28 @@ public class ReciboHaberes {
 		this.sueldoBruto = sueldoB;
 		this.desgloceDeConceptos  = desgloceDeConceptos;
 	}
-	
-	public String getNombre() {
-		return this.nombreEmpleado;
+
+	public String getNombreEmpleado() {
+		return nombreEmpleado;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public LocalDate getFechaDeEmision() {
+		return fechaDeEmision;
+	}
+
+	public int getSueldoNeto() {
+		return sueldoNeto;
+	}
+
+	public int getSueldoBruto() {
+		return sueldoBruto;
+	}
+
+	public List<Concepto> getDesgloceDeConceptos() {
+		return desgloceDeConceptos;
 	}
 }

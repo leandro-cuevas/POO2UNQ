@@ -40,9 +40,9 @@ public class Empresa {
 	}
 
 	private void liquidarSueldo(Empleado empleado) {
-
+		empleado.generarDesgloceDeConceptos();
 		recibosEmitidos.add(new ReciboHaberes(empleado.getNombre(), empleado.getDireccion(), LocalDate.now(),
-				empleado.sueldoNeto(), empleado.sueldoBruto(), empleado.desgloceDeConceptos()));
+				empleado.sueldoNeto(), empleado.sueldoBruto(), empleado.getConceptos()));
 	}
 
 	public void realizarLiqDeSueldos() {

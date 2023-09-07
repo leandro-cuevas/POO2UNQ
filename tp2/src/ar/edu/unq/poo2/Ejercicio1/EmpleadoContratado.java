@@ -1,6 +1,7 @@
 package ar.edu.unq.poo2.Ejercicio1;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class EmpleadoContratado extends Empleado {
 
@@ -38,8 +39,11 @@ public class EmpleadoContratado extends Empleado {
 	}
 
 	@Override
-	public String desgloceDeConceptos() {
-		return "Retención de Gastos Administrativos: $" + this.retencionGastosAdministrativos();
+	public void generarDesgloceDeConceptos() {
+		conceptos.add(new Concepto ("Sueldo básico", this.getSueldoBasico()));
+		conceptos.add(new Concepto("Gastos Administrativos", this.retencionGastosAdministrativos()));
+		conceptos.add(new Concepto ("Descuento Obra social", this.retencionPorObraSocial()));
+		conceptos.add(new Concepto ("Descuento Jubilación", this.retencionPorJubilacion()));
 	}
 
 }

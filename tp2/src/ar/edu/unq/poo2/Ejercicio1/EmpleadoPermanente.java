@@ -63,11 +63,13 @@ public class EmpleadoPermanente extends Empleado {
 	}
 
 	@Override
-	public String desgloceDeConceptos() {
-		return "Sueldo bruto está compuesto por:\n" + "Salario familiar: $" + this.salarioFamiliar()
-				+ ". El cual se compone de:\n" + "Asignación por hijo: $" + this.asignacionPorHijes() + "\n"
-				+ "Asignación por conyuge: $" + this.asignacionPorConyuge() + "\n" + "Antigüedad: $"
-				+ this.asignacionPorAntiguedad() + "\n" + "Se descuenta en calidad de retenciones:\n" + "Obra social: $"
-				+ this.retencionPorObraSocial() + "\n" + "Jubilación: $" + this.retencionPorJubilacion();
+	public void generarDesgloceDeConceptos() {
+		conceptos.add(new Concepto ("Sueldo básico", this.getSueldoBasico()));
+		conceptos.add(new Concepto ("Salario familiar", this.salarioFamiliar()));
+		conceptos.add(new Concepto ("Asignación por hije", this.asignacionPorHijes()));
+		conceptos.add(new Concepto ("Asignación por conyuge", this.asignacionPorConyuge()));
+		conceptos.add(new Concepto ("Antigüedad", this.asignacionPorAntiguedad()));
+		conceptos.add(new Concepto ("Descuento Obra social", this.retencionPorObraSocial()));
+		conceptos.add(new Concepto ("Descuento Jubilación", this.retencionPorJubilacion()));
 	}
 }

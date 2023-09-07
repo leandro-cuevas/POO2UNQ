@@ -33,9 +33,9 @@ class EmpleadoTest {
 		assertEquals(1160, empleadotemporal.sueldoBruto());
 		assertEquals(277, empleadotemporal.retenciones());
 		assertEquals(883, empleadotemporal.sueldoNeto());
-		assertEquals(empleadotemporal.desgloceDeConceptos(),
-				"Sueldo bruto está compuesto por:\n" + "Sueldo básico: $1000\n" + "Horas extras: $160\n"
-						+ "Se descuenta en calidad de retenciones:\n" + "Obra social: $141\n" + "Jubilación: $136");
+		empleadotemporal.generarDesgloceDeConceptos();
+		assertEquals(4, empleadotemporal.getConceptos().size());
+		assertEquals("Sueldo básico", empleadotemporal.getConceptos().get(0).getNombre());
 	}
 
 	@Test
@@ -43,6 +43,10 @@ class EmpleadoTest {
 		assertEquals(1900, empleadopermanente.sueldoBruto());
 		assertEquals(515, empleadopermanente.retenciones());
 		assertEquals(1385, empleadopermanente.sueldoNeto());
+		empleadopermanente.generarDesgloceDeConceptos();
+		assertEquals(7, empleadopermanente.getConceptos().size());
+		assertEquals("Sueldo básico", empleadopermanente.getConceptos().get(0).getNombre());
+
 	}
 
 	@Test
@@ -50,6 +54,10 @@ class EmpleadoTest {
 		assertEquals(1000, empleadocontratado.sueldoBruto());
 		assertEquals(50, empleadocontratado.retenciones());
 		assertEquals(950, empleadocontratado.sueldoNeto());
+		empleadocontratado.generarDesgloceDeConceptos();
+		assertEquals(4, empleadocontratado.getConceptos().size());
+		assertEquals("Sueldo básico", empleadocontratado.getConceptos().get(0).getNombre());
+
 	}
 
 	@Test
@@ -58,5 +66,8 @@ class EmpleadoTest {
 		assertEquals(842, empresa.totalRetenciones());
 		assertEquals(3218, empresa.totalSueldosNeto());
 		empresa.realizarLiqDeSueldos();
+		assertEquals(4, empleadotemporal.getConceptos().size());
+		assertEquals(7, empleadopermanente.getConceptos().size());
+		assertEquals(4, empleadocontratado.getConceptos().size());
 	}
 }

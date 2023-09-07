@@ -48,10 +48,10 @@ public class EmpleadoTemporario extends Empleado {
 	}
 
 	@Override
-	public String desgloceDeConceptos() {
-		return "Sueldo bruto está compuesto por:\n" + "Sueldo básico: $" + this.getSueldoBasico() + "\n"
-				+ "Horas extras: $" + this.sueldoHorasExtra() + "\n" + "Se descuenta en calidad de retenciones:\n"
-				+ "Obra social: $" + this.retencionPorObraSocial() + "\n" + "Jubilación: $"
-				+ this.retencionPorJubilacion();
+	public void generarDesgloceDeConceptos() {
+		conceptos.add(new Concepto ("Sueldo básico", this.getSueldoBasico()));
+		conceptos.add(new Concepto ("Horas extras", this.sueldoHorasExtra()));
+		conceptos.add(new Concepto ("Descuento Obra social", this.retencionPorObraSocial()));
+		conceptos.add(new Concepto ("Descuento Jubilación", this.retencionPorJubilacion()));
 	}
 }
