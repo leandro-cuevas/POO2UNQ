@@ -1,15 +1,20 @@
 package ar.edu.unq.po2.tp5;
 
-public abstract class Producto {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Producto implements Agencia {
 
 	private String nombre;
 	private double precioBase;
 	private int stock;
+	private List<Factura> pagosRegistrados;
 
 	public Producto(String nombre, double precioBase, int stock) {
 		this.nombre = nombre;
 		this.precioBase = precioBase;
 		this.stock = stock;
+		this.pagosRegistrados = new ArrayList<Factura>();
 	}
 
 	public double getPrecioBase() {
@@ -34,6 +39,11 @@ public abstract class Producto {
 
 	public boolean disponible() {
 		return stock > 0;
+	}
+	
+	public void registrarPago(Factura factura) {
+		pagosRegistrados.add(factura);
+		setStock(stock - 1);
 	}
 
 	public abstract double precioFinal();
