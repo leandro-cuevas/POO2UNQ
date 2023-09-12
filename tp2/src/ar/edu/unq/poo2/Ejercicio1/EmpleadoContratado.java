@@ -9,8 +9,8 @@ public class EmpleadoContratado extends Empleado {
 	
 	private String modoDePago;
 	
-	public EmpleadoContratado(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento, String numeroDeContrato, String modoDePago) {
-		super(nombre, direccion, estadoCivil, fechaNacimiento);
+	public EmpleadoContratado(String nombre, String direccion, boolean esCasado, LocalDate fechaNacimiento, String numeroDeContrato, String modoDePago) {
+		super(nombre, direccion, esCasado, fechaNacimiento);
 		this.numeroDeContrato = numeroDeContrato;
 		this.modoDePago = modoDePago;
 	}

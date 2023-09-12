@@ -8,14 +8,14 @@ public class EmpleadoPermanente extends Empleado {
 
 	private int antiguedad;
 
-	public EmpleadoPermanente(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento,
+	public EmpleadoPermanente(String nombre, String direccion, boolean esCasado, LocalDate fechaNacimiento,
 			int cantidadHijes, int antiguedad) {
-		super(nombre, direccion, estadoCivil, fechaNacimiento);
+		super(nombre, direccion, esCasado, fechaNacimiento);
 		this.cantidadHijes = cantidadHijes;
 		this.antiguedad = antiguedad;
 	}
 
-	private int getCantidadHijes() {
+	private int getCantidadHijes() { 
 		return this.cantidadHijes;
 	}	
 
@@ -28,7 +28,7 @@ public class EmpleadoPermanente extends Empleado {
 	}
 
 	private int asignacionPorConyuge() {
-		if (this.getEstadoCivil() == "Casado") {
+		if (this.getEsCasado()) {
 			return 100;
 		} else
 			return 0;

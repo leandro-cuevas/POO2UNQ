@@ -8,9 +8,9 @@ public class EmpleadoTemporario extends Empleado {
 
 	private int cantHorasExtra;
 
-	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento,
+	public EmpleadoTemporario(String nombre, String direccion, boolean esCasado, LocalDate fechaNacimiento,
 			int cantHorasExtra) {
-		super(nombre, direccion, estadoCivil, fechaNacimiento);
+		super(nombre, direccion, esCasado, fechaNacimiento);
 		this.cantHorasExtra = cantHorasExtra;
 	}
 

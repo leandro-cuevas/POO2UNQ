@@ -11,7 +11,7 @@ public abstract class Empleado {
 
 	protected String direccion;
 
-	protected String estadoCivil;
+	protected boolean esCasado;
 
 	protected LocalDate fechaNacimiento;
 
@@ -19,10 +19,10 @@ public abstract class Empleado {
 	
 	protected List<Concepto> conceptos;
 
-	public Empleado(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento) {
+	public Empleado(String nombre, String direccion, boolean esCasado, LocalDate fechaNacimiento) {
 		this.nombre = nombre;
 		this.direccion = direccion;
-		this.estadoCivil = estadoCivil;
+		this.esCasado = esCasado;
 		this.fechaNacimiento = fechaNacimiento;
 		this.conceptos = new ArrayList<Concepto>();
 
@@ -32,8 +32,8 @@ public abstract class Empleado {
 		return this.sueldoBasico;
 	}
 
-	protected String getEstadoCivil() {
-		return this.estadoCivil;
+	public boolean getEsCasado() {
+		return this.esCasado;
 	}
 
 	public String getNombre() {
@@ -43,7 +43,11 @@ public abstract class Empleado {
 	public String getDireccion() {
 		return this.direccion;
 	}
-
+	
+	public List<Concepto> getConceptos() {
+		return conceptos;
+	}
+	
 	public int edad() {
 		Period period = Period.between(fechaNacimiento, LocalDate.now());
 		return period.getYears();
@@ -66,9 +70,5 @@ public abstract class Empleado {
 	abstract protected int retencionGastosAdministrativos();
 
 	abstract public void generarDesgloceDeConceptos();
-
-	public List<Concepto> getConceptos() {
-		return conceptos;
-	}
 
 }

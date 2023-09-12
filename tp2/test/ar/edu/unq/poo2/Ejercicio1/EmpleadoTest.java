@@ -16,10 +16,10 @@ class EmpleadoTest {
 	@BeforeEach
 	void setUp() {
 
-		empleadotemporal = new EmpleadoTemporario("Leandro", "Evergreen Avenue", "Soltero", LocalDate.of(1930, 8, 16),
+		empleadotemporal = new EmpleadoTemporario("Leandro", "Evergreen Avenue", false, LocalDate.of(1930, 8, 16),
 				4);
-		empleadopermanente = new EmpleadoPermanente("Nacho", "Fake Street", "Casado", LocalDate.of(1990, 6, 23), 2, 10);
-		empleadocontratado = new EmpleadoContratado("Rodri", "Quilmes Road", "Viudo", LocalDate.of(2001, 7, 30),
+		empleadopermanente = new EmpleadoPermanente("Nacho", "Fake Street", true, LocalDate.of(1990, 6, 23), 2, 10);
+		empleadocontratado = new EmpleadoContratado("Rodri", "Quilmes Road", false, LocalDate.of(2001, 7, 30),
 				"0120230101", "Efectivo");
 		empresa = new Empresa("Empresario Feliz", "17121234562");
 		empresa.contratarTrabajador(empleadotemporal);
