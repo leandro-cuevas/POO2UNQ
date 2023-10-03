@@ -33,7 +33,7 @@ public class ActividadSemanal implements Comparable<ActividadSemanal> {
 	public int getCosto() {
 
 		int precioDelDia = 500;
-		int precioPorComplejidad = this.deporte.getComplejidad() * 2;
+		int precioPorComplejidad = this.deporte.getComplejidad() * 200;
 
 		if (this.deporte.ordinal() > 2) {
 			precioDelDia = 1000;
@@ -47,4 +47,9 @@ public class ActividadSemanal implements Comparable<ActividadSemanal> {
 		// TODO Auto-generated method stub
 		return this.getCosto() - o.getCosto();
 	}
+	
+	 @Override
+	    public String toString() {
+	        return "Deporte: " +deporte.name() + ". " + dia.name() + " a las " + horaInicio + ". Duracion: " + duracion + " hora(s)";
+	    }
 }
