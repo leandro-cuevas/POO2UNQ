@@ -54,6 +54,10 @@ public class SecretariaDeDeportes {
 	                    Map.Entry::getKey,
 	                    entry -> entry.getValue().orElse(null)));
 	}
+	
+	public void imprimirTodas() {
+		oferta.stream().forEach(act -> System.out.println(act.toString()));
+	}
 
 
 
