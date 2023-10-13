@@ -13,24 +13,20 @@ import javax.swing.JList;
 
 public class PalabrasOrdenadasAdapter extends DefaultListModel<String>{
 	
-	private DefaultListModel listM;
-
 	private ListaDePalabrasOrdenadas listaOrdenada;
 
-    public PalabrasOrdenadasAdapter(DefaultListModel listM) {
-    	this.listM = listM;
+    public PalabrasOrdenadasAdapter() {
     	listaOrdenada = new ListaDePalabrasOrdenadas();
     }
     
-    public void addElement(String s) {
+    
+    public void addElement(String s){
+
     	listaOrdenada.agregarPalabra(s);
-    	listM.clear();
-    	actualizar();
     }
 
 	private void actualizar() {
 		for (int i = 0; i < listaOrdenada.cantidadDePalabras(); i++) {
-			listM.addElement(listaOrdenada.getPalabraDePosicion(i));
 		}
 	}
 }

@@ -28,7 +28,7 @@ public class Ventana extends JFrame{
 	
 	public static void main(String[] args) {
 		
-		new Ventana(new DefaultListModel());
+		new Ventana(new PalabrasOrdenadasAdapter());
 		/*esta línea puede modificarse luego de resolver el ejercicio.*/
 		}
 }
