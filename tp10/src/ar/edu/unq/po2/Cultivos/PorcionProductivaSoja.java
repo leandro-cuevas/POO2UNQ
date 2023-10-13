@@ -1,4 +1,4 @@
-package ar.edu.unq.po2;
+package ar.edu.unq.po2.Cultivos;
 
 public class PorcionProductivaSoja implements Cultivable {
 	

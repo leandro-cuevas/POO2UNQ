@@ -1,9 +1,14 @@
-package ar.edu.unq.po2;
+package ar.edu.unq.po2.Cultivos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.Cultivos.GestorDeCultivos;
+import ar.edu.unq.po2.Cultivos.PorcionProductivaMixta;
+import ar.edu.unq.po2.Cultivos.PorcionProductivaSoja;
+import ar.edu.unq.po2.Cultivos.PorcionProductivaTrigo;
 
 class CultivablesTest {
 
